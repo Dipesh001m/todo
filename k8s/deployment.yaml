@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-monitor-app
+  labels:
+    app: python-monitor-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: python-monitor-app
+  template:
+    metadata:
+      labels:
+        app: python-monitor-app
+    spec:
+      containers:
+      - name: python-monitor-app
+        image: 570214690417.dkr.ecr.ap-south-1.amazonaws.com/python-monitor-app:latest
+        ports:
+        - containerPort: 5000
